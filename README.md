@@ -61,9 +61,14 @@ This will create a rating with the following settings
 
 `$(".rating").grating().val();`
 
-* character(function() {}) - Override the character generation to provide your own dynamic set of characters
+* character(function(index) {}) - Override the character generation to provide your own dynamic set of characters, passes down the current index value of the character being requested
 
-`$(".rating").grating().character(function(index) { return index;});`
+    var dynamicCount = 5;
+    $(".dynamicCharacter").grating({
+       character: function() {
+         return dynamicCount--;
+       }
+    });
 
 ### Plugin properties
 
