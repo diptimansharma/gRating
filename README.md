@@ -40,7 +40,7 @@ The plugin supports chaining so you can use the result of the initialization ope
 
 You can get the current value, enable or disable, initialize many ratings on a page in one call
 
-Ratings are character based so you can use any character, you can also use html element's or Font Awesome icon definitions
+Ratings are character based so you can use any character, alternatively you can use html element's, Font Awesome icon definitions or spritesheets and images
 
 You can provide data overrides in html to customize the rating, these values override plugin settings when present i.e.
 
@@ -60,6 +60,10 @@ This will create a rating with the following settings
 * val(index) - Get the collection of ratings current value or a single value, pass in an optional index to get an    individual value from a collection
 
 `$(".rating").grating().val();`
+
+* character(function() {}) - Override the character generation to provide your own dynamic set of characters
+
+`$(".rating").grating().character(function(index) { return index;});`
 
 ### Plugin properties
 
