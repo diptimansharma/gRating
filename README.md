@@ -16,9 +16,11 @@ Add a html element for each rating needed
 
 Initialize the plugin for elements on the page you want to be gRated
 
-    <script>
-        $(".rating").grating();
-    </script>
+```JavaScript
+<script>
+	$(".rating").grating();
+</script>
+```
 	
 That's it!
 
@@ -63,61 +65,69 @@ This will create a rating with the following settings
 
 * character(function(index) {}) - Override the character generation to provide your own dynamic set of characters, passes down the current index value of the character being requested
 
-    var dynamicCount = 5;
-    $(".dynamicCharacter").grating({
-       character: function() {
-         return dynamicCount--;
-       }
-    });
+```JavaScript
+var dynamicCount = 5;
+$(".dynamicCharacter").grating({
+   character: function() {
+	 return dynamicCount--;
+   }
+});
+```
 
 ### Plugin properties
 
-    $.fn.grating = function(options) {
-        /* Default plugin options */
-        $.fn.grating.defaultOptions = {
-          enabled: true,//Initial enabled or disabled state of the rating
-          allowDeselect: true,//Indicates whether to allow select the same rating value twice to toggle off the rating
-          character: "&#9733;",//Default character to use i.e. ASCII Star, can be font-awesome fa codes i.e. fa-ambulance
-          elementType: "span",//Allows switching the span type to another html element if needed
-          elementCount: 5,//How many rating objects to display
-          clickLimit: 0,//Whether to limit the number of clicks or not, a value of 0 enables no limit
-          defaultValue: 0,//Initial rating value
-          callback: null,//Placeholder for callback function called onclick events for when a rating is changed
-          ratingCss: {//Normal display settings for stars
-            fontSize: "50px",
-            color: "#fff",//For dark pages
-            opacity: ".5",
-            cursor: "pointer",
-            padding: "0 10px",
-            transition: "all 150ms",
-            display: "inline-block",
-            transform: "rotateX(45deg)",
-            transformOrigin: "center bottom",
-            textShadow: "none"
-          },
-          ratingHoverCss: {//Hover settings for stars
-            color: "#ff0",
-            opacity: "1",
-            transform: "rotateX(0deg)",
-            textShadow: "0 0 30px #ffc"
-          }
-    };
+```JavaScript
+$.fn.grating = function(options) {
+	/* Default plugin options */
+	$.fn.grating.defaultOptions = {
+	  enabled: true,//Initial enabled or disabled state of the rating
+	  allowDeselect: true,//Indicates whether to allow select the same rating value twice to toggle off the rating
+	  character: "&#9733;",//Default character to use i.e. ASCII Star, can be font-awesome fa codes i.e. fa-ambulance
+	  elementType: "span",//Allows switching the span type to another html element if needed
+	  elementCount: 5,//How many rating objects to display
+	  clickLimit: 0,//Whether to limit the number of clicks or not, a value of 0 enables no limit
+	  defaultValue: 0,//Initial rating value
+	  callback: null,//Placeholder for callback function called onclick events for when a rating is changed
+	  ratingCss: {//Normal display settings for stars
+		fontSize: "50px",
+		color: "#fff",//For dark pages
+		opacity: ".5",
+		cursor: "pointer",
+		padding: "0 10px",
+		transition: "all 150ms",
+		display: "inline-block",
+		transform: "rotateX(45deg)",
+		transformOrigin: "center bottom",
+		textShadow: "none"
+	  },
+	  ratingHoverCss: {//Hover settings for stars
+		color: "#ff0",
+		opacity: "1",
+		transform: "rotateX(0deg)",
+		textShadow: "0 0 30px #ffc"
+	  }
+};
+```
 
 Properties can be overridden when initilizing the gRating plugin
 
-    $(".rating").grating({
-      //Font awesome icon code is all that's needed to have them injected
-      character: "fa-ambulance",
-      //Change the rating css color to a more appropriate example for our page design
-      ratingCss: {color: "#5D6D7E"}
-    });
+```JavaScript
+$(".rating").grating({
+  //Font awesome icon code is all that's needed to have them injected
+  character: "fa-ambulance",
+  //Change the rating css color to a more appropriate example for our page design
+  ratingCss: {color: "#5D6D7E"}
+});
+```
 
 You can add a callback function to the plugin by passing it in on initialization, this will get called when a click event is detected on the rating. It passes back the rating object and the new value for the rating.
 
-    $(".rating").grating({
-      callback: function(owner, value)
-      {
-        //Owner is the rating div from our earlier example it doesn't have an id value but we could easily add one to    identify the purpose of the rating
-        console.log("Callback from "+owner.attr("id")+" with value "+value);
-      }
-    });
+```JavaScript
+$(".rating").grating({
+  callback: function(owner, value)
+  {
+	//Owner is the rating div from our earlier example it doesn't have an id value but we could easily add one to    identify the purpose of the rating
+	console.log("Callback from "+owner.attr("id")+" with value "+value);
+  }
+});
+```
