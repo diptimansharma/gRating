@@ -1,3 +1,5 @@
+# A Good Rating jQuery Plugin
+
 This jQuery plugin creates beautiful simple rating systems with minimal html and JavaScript.
 It is highly customizable if needed and integrates with font-awesome icons
 It requires jQuery any version 1.6+ for the use of the prop function
